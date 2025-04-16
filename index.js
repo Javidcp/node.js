@@ -87,23 +87,23 @@ const fs = require('fs');
 // });
 
 
-// const myPromise = new Promise((resolve, reject) => {
-//     let success = true;
+const myPromise = new Promise((resolve, reject) => {
+    let success = true;
     
-//     setTimeout(() => {
-//         if (success) {
-//             resolve("✅ Operation Successful!");
-//         } else {
-//             reject("❌ Operation Failed!");
-//         }
-//     }, 2000);
-// });
+    setTimeout(() => {
+        if (success) {
+            resolve("✅ Operation Successful!");
+        } else {
+            reject("❌ Operation Failed!");
+        }
+    }, 2000);
+});
 
-// // Handling the Promise
-// myPromise
-//     .then(result => console.log(result))  // Runs if resolved
-//     .catch(error => console.log(error))   // Runs if rejected
-//     .finally(() => console.log("🕒 Promise Completed!"));
+// Handling the Promise
+myPromise
+    .then(result => console.log(result))  // Runs if resolved
+    .catch(error => console.log(error))   // Runs if rejected
+    .finally(() => console.log("🕒 Promise Completed!"));
 
 
 
@@ -176,20 +176,31 @@ const fs = require('fs');
 
 // const fs = require('fs')
 
-setTimeout(() => {
-    console.log("TimeOut")
-}, 100)
+// setTimeout(() => {
+//     console.log("TimeOut")
+// }, 100)
 
-fs.readFile('nex.txt', () => {
-    console.log("File read")
+// fs.readFile('nex.txt', () => {
+//     console.log("File read")
+// })
+
+// Promise.resolve().then(() => console.log("Promise"))
+// process.nextTick(() => console.log("Process tick"))
+
+// function a() {
+//     console.log("Function");
+// }
+// a()
+
+// console.log("End");
+
+
+fs.unlink('myFold/new.txt', (err) => {
+    if (err) console.log(err);
+    
 })
 
-Promise.resolve().then(() => console.log("Promise"))
-process.nextTick(() => console.log("Process tick"))
-
-function a() {
-    console.log("Function");
-}
-a()
-
-console.log("End");
+fs.rmdir('myFold', (err) => {
+    if (err) console.log(err);
+    
+})
